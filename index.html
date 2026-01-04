@@ -1,228 +1,334 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.4747</title>
-    <style>
-        :root{
-            --accent:#0078ff;
-            /* إعادة ألوان واتساب */
-            --whatsapp:#25D366;
-            --whatsapp-alt:#128C7E;
-            --secondary-blue:#003366; 
-            /* اللون الأحمر */
-            --red-color: #CC0000; 
-        }
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
-            background: #e6f7ff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-size: cover; 
-            background-attachment: fixed;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-        }
-        img.logo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid var(--accent);
-        }
-        h1 {
-            margin: 10px 0;
-            color: var(--accent);
-            font-size: 32px;
-            letter-spacing: 1px;
-        }
-        /* لون وحجم خط العنوان "طرق الشحن" */
-        h3 {
-            color: var(--secondary-blue); 
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 5px;
-            margin-top: 30px;
-            display: block;
-            font-size: 22px; 
-        }
-        p {
-            color: #444;
-            line-height: 1.7;
-            font-size: 16px;
-        }
-        
-        /* تجميد تنسيق القوائم لعمل التوسيط */
-        ul { 
-            text-align: center; 
-            list-style-type: none; 
-            list-style-position: inside; 
-            margin: 15px 0; 
-            padding-inline-start: 0; 
-        }
-        
-        li {
-             list-style-type: none; 
-             font-size: 16px;
-             line-height: 1.7;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr.4747</title>
 
-        /* لون وحجم خط قائمة طرق الشحن إلى الأحمر */
-        .card ul:first-of-type {
-            padding: 0; 
-        }
-        .card ul:first-of-type li {
-            color: var(--red-color); 
-            font-size: 18px;
-            font-weight: 700;
-            list-style-type: none; 
-        }
+  <style>
+    :root{
+      /* Gold / Black theme قريب من اللوجو */
+      --bg-1:#05070a;
+      --bg-2:#0b1220;
 
-        /* زر عام */
-        .btn {
-            display: flex; 
-            align-items: center; 
-            justify-content: center; /* تم التعديل هنا للتوسيط الأفقي */
-            color: #fff;
-            padding: 12px;
-            margin: 12px 0;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 17px;
-        }
-        .btn:hover{ opacity: 0.96; }
+      --gold-1:#f7d36a;
+      --gold-2:#d9a441;
+      --gold-3:#b07a1c;
 
-        /* ألوان محددة للأزرار للواتساب */
-        .btn-whatsapp { background: var(--whatsapp); } 
-        .btn-whatsapp-alt { background: var(--whatsapp-alt); } 
-        .btn-facebook { background: #1877F2; }
+      --card:#0b0f14;
+      --card-2:#0f1620;
+      --border:#2a2f37;
 
-        /* تنسيق صور الأزرار وزيادة حجمها */
-        .btn img {
-            width: 36px; 
-            height: 36px; 
-            margin-right: 10px; /* تم تعديل الهامش ليكون على يمين اللوجو (يسار النص) */
-            margin-left: 0;
-        }
+      --text:#e8eef5;
+      --muted:#b6c2cf;
 
-        .prices {
-            background: #fafafa;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            text-align: right;
-        }
-        .prices h3 { margin-top: 0; border-bottom: none; color: var(--accent); }
+      --whatsapp:#25D366;
+      --whatsapp-alt:#128C7E;
+      --facebook:#1877F2;
 
-        /* تلوين نصوص الأسعار إلى الأحمر */
-        .prices ul li {
-            color: var(--red-color); 
-            font-size: 18px; 
-            font-weight: bold;
-            text-align: right; 
-            list-style-type: disc; 
-        }
-        /* تنسيق النقاط الافتراضية لقوائم الأسعار لتكون داخلية */
-        .prices ul {
-             text-align: right;
-             list-style-position: inside;
-        }
+      --danger:#ff4d4d;
+    }
 
-        .prices p {
-            color: #444; 
-            font-size: 16px;
-            font-weight: normal;
-        }
-        .prices p strong {
-            color: #444; 
-            font-size: 20px; 
-            display: block;
-            margin-top: 10px;
-        }
+    *{ box-sizing:border-box; }
 
+    body{
+      font-family: system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;
+      margin:0;
+      padding:0;
+      text-align:center;
+      color:var(--text);
 
-        /* تحسين للاستجابة */
-        @media (max-width:420px){
-            .card{ margin: 20px; padding: 18px; }
-            h1{ font-size: 26px; }
-            img.logo{ width: 110px; height:110px; }
-        }
-    </style>
+      /* خلفية بنفس روح اللوجو (غامقة + الصورة كـ texture) */
+      background-image:
+        radial-gradient(1200px 600px at 50% -10%, rgba(247,211,106,0.18), transparent 60%),
+        radial-gradient(900px 500px at 10% 20%, rgba(217,164,65,0.12), transparent 55%),
+        radial-gradient(900px 500px at 90% 30%, rgba(217,164,65,0.10), transparent 55%),
+        linear-gradient(rgba(5,7,10,0.82), rgba(5,7,10,0.88)),
+        url("https://i.postimg.cc/D0j5wyc9/Gemini-Generated-Image-b4c9wvb24c9wvb4c9.png");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .card{
+      max-width: 640px;
+      margin: 42px auto;
+      padding: 28px;
+      border-radius: 22px;
+
+      /* كارد غامق “premium” */
+      background:
+        radial-gradient(900px 300px at 50% 0%, rgba(247,211,106,0.10), transparent 55%),
+        linear-gradient(180deg, rgba(15,22,32,0.92), rgba(11,15,20,0.94));
+
+      border: 1px solid rgba(217,164,65,0.22);
+      box-shadow:
+        0 18px 45px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+
+    .logo-wrap{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      padding: 4px;
+
+      /* إطار ذهبي حول اللوجو */
+      background: conic-gradient(from 180deg, var(--gold-1), var(--gold-2), var(--gold-3), var(--gold-1));
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    }
+
+    img.logo{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display:block;
+      border: 2px solid rgba(0,0,0,0.55);
+    }
+
+    h1{
+      margin: 10px 0 6px;
+      font-size: 34px;
+      letter-spacing: .5px;
+
+      /* نص ذهبي */
+      background: linear-gradient(90deg, var(--gold-1), var(--gold-2), var(--gold-1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    }
+
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding: 8px 14px;
+      margin: 8px 0 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #121212;
+
+      background: linear-gradient(90deg, rgba(247,211,106,0.95), rgba(217,164,65,0.95));
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+
+    h3{
+      margin-top: 22px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+    }
+
+    /* خط فاصل ذهبي أنيق */
+    .divider{
+      height: 1px;
+      width: 86%;
+      margin: 10px auto 14px;
+      background: linear-gradient(90deg, transparent, rgba(217,164,65,0.75), transparent);
+    }
+
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 16px;
+      text-align:center;
+    }
+
+    .ship li{
+      color: var(--danger);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.85;
+      text-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    /* أزرار شكلها premium */
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+
+      color:#fff;
+      padding: 14px 14px;
+      margin: 12px 0;
+      text-decoration:none;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 17px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+      transition: transform .12s ease, opacity .12s ease;
+    }
+
+    .btn:hover{ opacity: .97; transform: translateY(-1px); }
+
+    .btn img{
+      width: 28px;
+      height: 28px;
+    }
+
+    .btn-whatsapp{ background: linear-gradient(90deg, #1fb954, var(--whatsapp)); }
+    .btn-whatsapp-alt{ background: linear-gradient(90deg, #0f7e70, var(--whatsapp-alt)); }
+    .btn-facebook{ background: linear-gradient(90deg, #1461c9, var(--facebook)); }
+
+    /* الأسعار */
+    .prices{
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      text-align:right;
+
+      background: linear-gradient(180deg, rgba(10,14,20,0.9), rgba(7,9,12,0.92));
+      border: 1px solid rgba(217,164,65,0.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .prices h3{
+      margin: 0 0 10px;
+      justify-content:flex-start;
+      color: transparent;
+      background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: 20px;
+    }
+
+    .prices p{
+      margin: 10px 0 6px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .prices p strong{
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .prices ul{
+      margin: 6px 0 12px;
+      padding: 0;
+      list-style: disc;
+      list-style-position: inside;
+      text-align:right;
+    }
+
+    .prices li{
+      color: #ff6b6b;
+      font-weight: 800;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .hr{
+      height: 1px;
+      border: 0;
+      margin: 12px 0;
+      background: linear-gradient(90deg, transparent, rgba(217,164,65,0.55), transparent);
+    }
+
+    @media (max-width: 420px){
+      .card{ margin: 18px; padding: 18px; }
+      h1{ font-size: 28px; }
+      .logo-wrap{ width: 120px; height: 120px; }
+      .btn{ font-size: 16px; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="card">
 
-    <div class="card">
-
-        <img class="logo" src="https://www.raed.net/img?id=1473060" alt="شعار Mr.4747">
-
-        <h1>Mr.4747</h1>
-
-        <p style="color: var(--secondary-blue); font-size: 18px; font-weight: 700;">موزع معتمد لشحن الجولد 24 ساعة 7 أيام</p>
-
-        <h3>طرق الشحن:</h3>
-        
-        <ul>
-            <li>كروت فودافون</li>
-            <li>إنستا باي</li>
-            <li>محافظ كاش</li>
-            <li>تحويلات بنكية</li>
-            <li>تحويل رصيد</li>
-        </ul>
-
-        <a class="btn btn-whatsapp" href="https://wa.me/201095493508" target="_blank" rel="noopener noreferrer">
-            واتساب الأساسي: 01097625788
-            <img src="https://i.ibb.co/5x29nnQd/pngegg.png" alt="WhatsApp Logo">
-        </a>
-        <a class="btn btn-whatsapp-alt" href="https://wa.me/201097625788" target="_blank" rel="noopener noreferrer">
-            واتساب البديل: 01095493508
-            <img src="https://i.ibb.co/5x29nnQd/pngegg.png" alt="WhatsApp Logo">
-        </a>
-        <a class="btn btn-facebook" href="https://www.facebook.com/ConquerOnline.Mr.4747/" target="_blank" rel="noopener noreferrer">
-            صفحتنا على فيسبوك
-            <img src="https://i.ibb.co/C5JD7NZn/pngegg-1.png" alt="Facebook Logo">
-        </a>
-
-        <div class="prices">
-            <h3>الأسعار ❤️💕</h3>
-
-            <p><strong>كروت فودافون:</strong></p>
-            <ul>
-                <li>25 = 8.5 مليون</li>
-                <li>50 = 17 مليون</li>
-                <li>100 = 34 مليون</li>
-                <li>200 = 68 مليون</li>
-            </ul>
-
-            <hr>
-
-            <p><strong>أسعار كاش للمليار:</strong></p>
-            <ul>
-                <li>2650 شراء</li>
-                <li>2500 بيع</li>
-            </ul>
-
-            <hr>
-
-            <p><strong>الـ 100 مليون:</strong></p>
-            <ul>
-                <li>265 شراء</li>
-                <li>250 بيع</li>
-            </ul>
-        </div>
-
+    <div class="logo-wrap">
+      <img class="logo"
+           src="https://i.postimg.cc/D0j5wyc9/Gemini-Generated-Image-b4c9wvb24c9wvb4c9.png"
+           alt="شعار Mr.4747">
     </div>
 
+    <h1>Mr.4747</h1>
+
+    <div class="badge">موزع معتمد لشحن الجولد 24 ساعة / 7 أيام</div>
+
+    <p class="subtitle">
+      تحويل سريع، تواصل مباشر، وأسعار واضحة.
+    </p>
+
+    <h3>طرق الشحن</h3>
+    <div class="divider"></div>
+
+    <ul class="ship">
+      <li>كروت فودافون</li>
+      <li>إنستا باي</li>
+      <li>محافظ كاش</li>
+      <li>تحويلات بنكية</li>
+      <li>تحويل رصيد</li>
+    </ul>
+
+    <a class="btn btn-whatsapp"
+       href="https://wa.me/201095493508"
+       target="_blank" rel="noopener">
+      واتساب الأساسي: 01095493508
+      <img src="https://i.ibb.co/5x29nnQd/pngegg.png" alt="WhatsApp">
+    </a>
+
+    <a class="btn btn-whatsapp-alt"
+       href="https://wa.me/201097625788"
+       target="_blank" rel="noopener">
+      واتساب البديل: 01097625788
+      <img src="https://i.ibb.co/5x29nnQd/pngegg.png" alt="WhatsApp">
+    </a>
+
+    <a class="btn btn-facebook"
+       href="https://www.facebook.com/ConquerOnline.Mr.4747/"
+       target="_blank" rel="noopener">
+      صفحتنا على فيسبوك
+      <img src="https://i.ibb.co/C5JD7NZn/pngegg-1.png" alt="Facebook">
+    </a>
+
+    <div class="prices">
+      <h3>الأسعار</h3>
+
+      <p><strong>كروت فودافون:</strong></p>
+      <ul>
+        <li>25 = 8.5 مليون</li>
+        <li>50 = 17 مليون</li>
+        <li>100 = 34 مليون</li>
+        <li>200 = 68 مليون</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <p><strong>أسعار كاش للمليار:</strong></p>
+      <ul>
+        <li>2650 شراء</li>
+        <li>2500 بيع</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <p><strong>الـ 100 مليون:</strong></p>
+      <ul>
+        <li>265 شراء</li>
+        <li>250 بيع</li>
+      </ul>
+    </div>
+
+  </div>
 </body>
 </html>
-
-
